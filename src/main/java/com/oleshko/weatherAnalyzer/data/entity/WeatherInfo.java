@@ -4,7 +4,7 @@ package com.oleshko.weatherAnalyzer.data.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 
@@ -24,11 +24,8 @@ public class WeatherInfo {
     @Column(name = "locality", length = 200)
     private String locality;
 
-    @Column(name = "date")
-    private LocalDate date;
-
-    @Column(name = "local_time")
-    private LocalTime time;
+    @Column(name = "date_time")
+    private LocalDateTime dateTime;
 
     @Column(name = "temperature_c")
     private Double temperatureDegreesC;
