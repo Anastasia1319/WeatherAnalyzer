@@ -1,5 +1,5 @@
 /*
- DROP IF EXISTS TABLE weather_info;
+ DROP TABLE weather_info;
 */
 
 
@@ -14,5 +14,5 @@ CREATE TABLE IF NOT EXISTS weather_info
     wind_speed_m_in_s DECIMAL(3, 1),
     atmospheric_pressure_hPa DECIMAL(7, 3),
     air_humidity INTEGER,
-    weather_conditions VARCHAR(100)
+    weather_condition VARCHAR(100)
 );
