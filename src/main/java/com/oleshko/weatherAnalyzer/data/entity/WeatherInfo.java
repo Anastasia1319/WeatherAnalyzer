@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 
 @Entity
@@ -33,7 +32,7 @@ public class WeatherInfo {
     @Column(name = "wind_speed_m_in_s")
     private Double windSpeedMetersPerSecond;
 
-    @Column(name = "atmospheric_pressure_hPa")
+    @Column(name = "atmospheric_pressure_hpa")
     private Double atmosphericPressureHPa;
 
     @Column(name = "air_humidity")
