@@ -13,6 +13,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -50,7 +51,8 @@ public class WeatherInfoServiceImpl implements WeatherInfoService {
         LocalDateTime dateTimeFrom = dateFrom.atTime(0, 0);
         LocalDateTime dateTimeTo = dateTo.atTime(23, 59);
         List<WeatherInfo> weatherInfoList = weatherInfoRepository.findAverageTemperature(dateTimeFrom, dateTimeTo);
-        Double averageTemperature = foundDayAverageTemperature(weatherInfoList);
+        DecimalFormat format = new DecimalFormat("#.###");
+        Double averageTemperature = Double.valueOf(format.format(foundDayAverageTemperature(weatherInfoList)));
         log.info("Average temperature was calculate");
         return AverageTemperatureDto.builder()
                 .averageTemperature(averageTemperature)
