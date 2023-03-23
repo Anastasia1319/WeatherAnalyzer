@@ -5,5 +5,5 @@ import com.oleshko.weatherAnalyzer.service.dto.WeatherInfoDto;
 public interface WeatherInfoService {
     WeatherInfoDto getActualWeather();
 
-    WeatherInfoDto save(WeatherInfoDto weatherInfoDto);
+    void save(WeatherInfoDto weatherInfoDto);
 }
