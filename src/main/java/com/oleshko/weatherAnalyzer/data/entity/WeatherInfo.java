@@ -2,7 +2,10 @@ package com.oleshko.weatherAnalyzer.data.entity;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -10,6 +13,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "weather_info")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class WeatherInfo {
 
     @Id

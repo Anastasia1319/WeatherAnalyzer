@@ -10,30 +10,30 @@ import org.springframework.stereotype.Component;
 public class ConverterService {
 
     public WeatherInfoDto toWeatherInfoDto(WeatherInfo weatherInfo) {
-        WeatherInfoDto weatherInfoDto = new WeatherInfoDto();
-        weatherInfoDto.setId(weatherInfo.getId());
-        weatherInfoDto.setCountry(weatherInfo.getCountry());
-        weatherInfoDto.setLocality(weatherInfo.getLocality());
-        weatherInfoDto.setDateTime(weatherInfo.getDateTime());
-        weatherInfoDto.setTemperatureDegreesC(weatherInfo.getTemperatureDegreesC());
-        weatherInfoDto.setWindSpeedMetersPerSecond(weatherInfo.getWindSpeedMetersPerSecond());
-        weatherInfoDto.setAtmosphericPressureHPa(weatherInfo.getAtmosphericPressureHPa());
-        weatherInfoDto.setAirHumidity(weatherInfo.getAirHumidity());
-        weatherInfoDto.setWeatherCondition(weatherInfo.getWeatherCondition());
-        return weatherInfoDto;
+        return WeatherInfoDto.builder()
+                .id(weatherInfo.getId())
+                .country(weatherInfo.getCountry())
+                .locality(weatherInfo.getLocality())
+                .dateTime(weatherInfo.getDateTime())
+                .temperatureDegreesC(weatherInfo.getTemperatureDegreesC())
+                .windSpeedMetersPerSecond(weatherInfo.getWindSpeedMetersPerSecond())
+                .atmosphericPressureHPa(weatherInfo.getAtmosphericPressureHPa())
+                .airHumidity(weatherInfo.getAirHumidity())
+                .weatherCondition(weatherInfo.getWeatherCondition())
+                .build();
     }
 
     public WeatherInfo toWeatherInfoEntity(WeatherInfoDto weatherInfoDto) {
-        WeatherInfo weatherInfo = new WeatherInfo();
-        weatherInfo.setId(weatherInfoDto.getId());
-        weatherInfo.setCountry(weatherInfoDto.getCountry());
-        weatherInfo.setLocality(weatherInfoDto.getLocality());
-        weatherInfo.setDateTime(weatherInfoDto.getDateTime());
-        weatherInfo.setTemperatureDegreesC(weatherInfoDto.getTemperatureDegreesC());
-        weatherInfo.setWindSpeedMetersPerSecond(weatherInfoDto.getWindSpeedMetersPerSecond());
-        weatherInfo.setAtmosphericPressureHPa(weatherInfoDto.getAtmosphericPressureHPa());
-        weatherInfo.setAirHumidity(weatherInfoDto.getAirHumidity());
-        weatherInfo.setWeatherCondition(weatherInfoDto.getWeatherCondition());
-        return weatherInfo;
+        return WeatherInfo.builder()
+                .id(weatherInfoDto.getId())
+                .country(weatherInfoDto.getCountry())
+                .locality(weatherInfoDto.getLocality())
+                .dateTime(weatherInfoDto.getDateTime())
+                .temperatureDegreesC(weatherInfoDto.getTemperatureDegreesC())
+                .windSpeedMetersPerSecond(weatherInfoDto.getWindSpeedMetersPerSecond())
+                .atmosphericPressureHPa(weatherInfoDto.getAtmosphericPressureHPa())
+                .airHumidity(weatherInfoDto.getAirHumidity())
+                .weatherCondition(weatherInfoDto.getWeatherCondition())
+                .build();
     }
 }
