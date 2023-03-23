@@ -7,6 +7,7 @@ import com.oleshko.weatherAnalyzer.service.dto.WeatherInfoDto;
 import com.oleshko.weatherAnalyzer.service.impl.WeatherInfoRequestService;
 import com.oleshko.weatherAnalyzer.service.parser.Parser;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -14,11 +15,13 @@ import java.time.format.DateTimeFormatter;
 
 @Component
 @Data
+@Slf4j
 public class ParserWeatherInfoFromApiImpl implements Parser {
     private final WeatherInfoRequestService weatherInfoRequest;
 
     @Override
     public WeatherInfoDto parse() {
+        log.info("Trying parsing the page from API source");
         String dataFromApi = weatherInfoRequest.getApiConnection();
         ObjectMapper objectMapper = new ObjectMapper();
         WeatherInfoDto weatherInfoDto;
@@ -42,6 +45,7 @@ public class ParserWeatherInfoFromApiImpl implements Parser {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+        log.info("The page from API source was parse");
         return weatherInfoDto;
     }
 }

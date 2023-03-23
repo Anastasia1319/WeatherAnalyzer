@@ -3,13 +3,16 @@ package com.oleshko.weatherAnalyzer.service.impl;
 import com.oleshko.weatherAnalyzer.data.entity.WeatherInfo;
 import com.oleshko.weatherAnalyzer.service.dto.WeatherInfoDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class ConverterService {
 
     public WeatherInfoDto toWeatherInfoDto(WeatherInfo weatherInfo) {
+        log.info("Transform method called from WeatherInfo to WeatherInfoDto");
         return WeatherInfoDto.builder()
                 .id(weatherInfo.getId())
                 .country(weatherInfo.getCountry())
@@ -24,6 +27,7 @@ public class ConverterService {
     }
 
     public WeatherInfo toWeatherInfoEntity(WeatherInfoDto weatherInfoDto) {
+        log.info("Transform method called from WeatherInfoDto to WeatherInfo");
         return WeatherInfo.builder()
                 .id(weatherInfoDto.getId())
                 .country(weatherInfoDto.getCountry())

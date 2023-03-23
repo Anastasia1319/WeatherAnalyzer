@@ -1,6 +1,7 @@
 package com.oleshko.weatherAnalyzer.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.net.http.HttpResponse;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class WeatherInfoRequestService {
 
     @Value("${data.api.uri}")
@@ -36,12 +38,14 @@ public class WeatherInfoRequestService {
                 .header("X-RapidAPI-Host", headerApiHost)
                 .method(method, HttpRequest.BodyPublishers.noBody())
                 .build();
+        log.info("HttpRequest was created");
         HttpResponse<String> response;
         try {
             response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
+        log.info("Response was got");
         return response.body();
     }
 }
