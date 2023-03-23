@@ -1,11 +1,12 @@
 package com.oleshko.weatherAnalyzer.web;
 
 import com.oleshko.weatherAnalyzer.service.WeatherInfoService;
+import com.oleshko.weatherAnalyzer.service.dto.AverageTemperatureDto;
 import com.oleshko.weatherAnalyzer.service.dto.WeatherInfoDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,5 +18,10 @@ public class WeatherInfoController {
     @GetMapping
     public WeatherInfoDto get() {
         return weatherInfoService.getActualWeather();
+    }
+
+    @PostMapping("/average")
+    public AverageTemperatureDto getAverage(@RequestBody LocalDate dateFrom, @RequestBody LocalDate dateTo) {
+        return weatherInfoService.getAverageTemperature(dateFrom, dateTo);
     }
 }
