@@ -1,5 +1,6 @@
 package com.oleshko.weatherAnalyzer.service.impl;
 
+import com.oleshko.weatherAnalyzer.exception.NotConnectionException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,7 +44,7 @@ public class WeatherInfoRequestService {
         try {
             response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
+            throw new NotConnectionException(e);
         }
         log.info("Response was got");
         return response.body();

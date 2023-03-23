@@ -4,6 +4,7 @@ import com.oleshko.weatherAnalyzer.service.WeatherInfoService;
 import com.oleshko.weatherAnalyzer.service.dto.AverageTemperatureDto;
 import com.oleshko.weatherAnalyzer.service.dto.WeatherInfoDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
